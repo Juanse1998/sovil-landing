@@ -14,7 +14,7 @@ export default function Marquee({ lang }) {
     }}>
       <div style={{
         display: 'flex', gap: 48, whiteSpace: 'nowrap',
-        animation: 'v1-marquee 40s linear infinite',
+        animation: 'v1-marquee 9s linear infinite',
         fontFamily: S.display, fontSize: 32, letterSpacing: '-0.01em',
         alignItems: 'center',
       }}>
