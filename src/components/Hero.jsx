@@ -63,7 +63,7 @@ export default function Hero({ t, lang }) {
       <Reveal>
         <h1 style={{
           fontFamily: S.display,
-          fontSize: isMobile ? 'clamp(28px, 9.5vw, 52px)' : 'clamp(64px, 9vw, 172px)',
+          fontSize: isMobile ? 'clamp(38px, 11.5vw, 54px)' : 'clamp(64px, 9vw, 172px)',
           lineHeight: 0.9,
           letterSpacing: '-0.02em',
           margin: 0,
