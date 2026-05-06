@@ -9,7 +9,7 @@ export default function Nav({ t, lang, toggleLang }) {
       position: 'sticky', top: 0, zIndex: 40,
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       height: 72, padding: isMobile ? '0 20px' : '0 48px', overflow: 'visible',
-      background: 'rgba(255,255,255,0.88)',
+      background: S.bg + 'CC', // 80% opacity
       backdropFilter: 'blur(14px)',
       borderBottom: `1px solid ${S.line}`,
       fontFamily: S.sans,
@@ -20,10 +20,10 @@ export default function Nav({ t, lang, toggleLang }) {
         <div style={{ display: 'flex', alignItems: 'center', gap: 36 }}>
           {t.nav.map((n, i) => (
             <a key={i} href={`#s${i + 1}`} style={{
-              fontSize: 13, color: S.inkSoft, textDecoration: 'none',
+              fontSize: 13, color: S.ink, textDecoration: 'none', fontWeight: 600,
               fontFamily: S.mono, textTransform: 'uppercase', letterSpacing: '0.08em',
               transition: 'color .2s',
-            }} onMouseEnter={e => e.target.style.color = S.ink} onMouseLeave={e => e.target.style.color = S.inkSoft}>
+            }} onMouseEnter={e => e.target.style.color = S.accent} onMouseLeave={e => e.target.style.color = S.ink}>
               {n}
             </a>
           ))}
@@ -34,13 +34,13 @@ export default function Nav({ t, lang, toggleLang }) {
         <button onClick={toggleLang} style={{
           background: 'transparent', border: `1px solid ${S.line}`,
           padding: '6px 10px', borderRadius: 999,
-          fontFamily: S.mono, fontSize: 11, letterSpacing: '0.1em',
-          color: S.ink, cursor: 'pointer', textTransform: 'uppercase',
+          fontFamily: S.mono, fontSize: 13, letterSpacing: '0.1em',
+          color: S.ink, cursor: 'pointer', textTransform: 'uppercase', fontWeight: 600,
         }}>
           {lang === 'es' ? 'ES' : 'EN'}
         </button>
         <a href="#contact" style={{
-          background: S.ink, color: S.bg,
+          background: S.sub2, color: S.bg,
           padding: isMobile ? '8px 14px' : '10px 20px',
           borderRadius: 999, fontSize: 13, textDecoration: 'none',
           fontFamily: S.sans, fontWeight: 600, letterSpacing: '0.01em',

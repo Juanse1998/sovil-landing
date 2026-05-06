@@ -4,7 +4,8 @@ const SOVIL_CONTENT = {
     hero: {
       eyebrow: 'Socio estratégico · Diseño, estrategia y ejecución',
       headline: 'Convertimos ideas en negocios digitales que funcionan.',
-      sub: 'No desarrollamos por desarrollar. Construimos con criterio, acompañando cada decisión que importa.',
+      sub: 'Las ideas sobran.',
+      sub2: 'Los negocios no.',
       cta: 'Agendar una llamada',
       ctaSecondary: 'Ver qué hacemos',
       microClaim: 'Las ideas sobran. Los negocios no.',

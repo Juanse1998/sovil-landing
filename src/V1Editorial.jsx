@@ -11,19 +11,21 @@ import Process from './components/Process';
 import Cases from './components/Cases';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import QuienesSomos from './components/QuienesSomos';
 
 export default function V1Editorial() {
   const { lang, t, toggleLang } = useSovilState('sovil.v1');
   return (
-    <div style={{ background: S.bg, color: S.ink, fontFamily: S.sans }}>
+    <div style={{ background: S.bgInk, color: S.inkOnDark, fontFamily: S.sans }}>
       <ScrollProgress />
       <Nav t={t} lang={lang} toggleLang={toggleLang} />
       <Hero t={t} lang={lang} />
       <Marquee lang={lang} />
       <Story t={t} lang={lang} />
+      <QuienesSomos t={t} lang={lang} />
       <Manifesto t={t} />
       <Services t={t} />
-      <Process t={t} />
+      {/* <Process t={t} /> */}
       <Cases t={t} lang={lang} />
       <Contact t={t} />
       <Footer t={t} />

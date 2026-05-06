@@ -13,7 +13,7 @@ export default function CaseCard({ t, c, idx, size, onOpen }) {
         onMouseEnter={() => setHover(true)}
         onMouseLeave={() => setHover(false)}
         style={{
-          background: S.bg, border: `1px solid ${S.line}`,
+          background: S.bgSoft, border: `1px solid ${S.line}`,
           borderRadius: 6, overflow: 'hidden', cursor: 'pointer',
           display: 'flex', flexDirection: 'column',
           height: isLg ? 640 : '100%',
@@ -27,9 +27,9 @@ export default function CaseCard({ t, c, idx, size, onOpen }) {
           flex: isLg ? '1 1 60%' : '1 1 55%',
           position: 'relative', overflow: 'hidden',
           background: c.sector === 'Fintech' ? S.forest
-            : c.sector === 'Retail' ? S.bgInk
+            : c.sector === 'Retail' ? '#1A1A1A'
               : S.accent,
-          color: c.sector === 'SaaS B2B' || c.sector === 'B2B SaaS' ? S.ink : S.inkOnDark,
+          color: c.sector === 'SaaS B2B' || c.sector === 'B2B SaaS' ? S.accentInk : S.inkOnDark,
         }}>
           <SectorGraphic sector={c.sector} size={isLg ? 'lg' : 'sm'} />
 
@@ -70,7 +70,7 @@ export default function CaseCard({ t, c, idx, size, onOpen }) {
           flex: '0 0 auto',
           padding: isLg ? '28px 32px' : '20px 24px',
           borderTop: `1px solid ${S.line}`,
-          background: S.bg,
+          background: S.bgSoft,
           display: 'flex', flexDirection: 'column', gap: 14,
         }}>
           <div style={{ fontFamily: S.sans, fontSize: isLg ? 16 : 14, lineHeight: 1.5, color: S.ink }}>{c.brief}</div>
@@ -81,7 +81,7 @@ export default function CaseCard({ t, c, idx, size, onOpen }) {
                   fontFamily: S.mono, fontSize: 10,
                   letterSpacing: '0.1em', textTransform: 'uppercase',
                   padding: '4px 10px', borderRadius: 999,
-                  background: S.bgSoft, border: `1px solid ${S.line}`,
+                  background: 'rgba(255,255,255,0.07)', border: `1px solid ${S.line}`,
                   color: S.inkSoft,
                 }}>{srv}</span>
               ))}

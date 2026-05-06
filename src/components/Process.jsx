@@ -44,7 +44,7 @@ export default function Process({ t }) {
                   width: isMobile ? 36 : 44, height: isMobile ? 36 : 44, borderRadius: '50%',
                   border: `1.5px solid ${S.inkOnDark}`,
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: S.sans, fontSize: 20, color: isOpen ? S.ink : S.inkOnDark,
+                  fontFamily: S.sans, fontSize: 20, color: isOpen ? S.accentInk : S.inkOnDark,
                   background: isOpen ? S.accent : 'transparent',
                   borderColor: isOpen ? S.accent : S.inkOnDark,
                   transition: 'background .2s, transform .25s, border-color .2s, color .2s',

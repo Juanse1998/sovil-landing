@@ -5,9 +5,9 @@ import { useMobile } from '../hooks';
 export default function Footer({ t }) {
   const isMobile = useMobile();
   return (
-    <footer style={{ padding: isMobile ? '60px 20px 32px' : '100px 48px 40px', background: S.ink, color: S.bg }}>
+    <footer style={{ padding: isMobile ? '60px 20px 32px' : '100px 48px 40px', background: S.bgSoft, color: S.inkOnDark }}>
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? 32 : 40, alignItems: 'end', marginBottom: isMobile ? 48 : 80 }}>
-        <div style={{ fontFamily: S.display, fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: S.bg, maxWidth: '16ch' }}>
+        <div style={{ fontFamily: S.display, fontSize: 'clamp(40px, 5vw, 72px)', lineHeight: 0.95, letterSpacing: '-0.02em', color: S.inkOnDark, maxWidth: '16ch' }}>
           {t.footer.tagline}
         </div>
         <div style={{ textAlign: isMobile ? 'left' : 'right' }}>

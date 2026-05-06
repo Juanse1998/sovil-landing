@@ -14,7 +14,7 @@ export default function Cases({ t, lang }) {
   const filtered = filter === 0 ? items : items.filter(c => c.sector === filters[filter]);
 
   return (
-    <section id="s3" style={{ padding: isMobile ? '80px 20px' : '140px 48px', background: S.bgSoft, borderBottom: `1px solid ${S.line}` }}>
+    <section id="s3" style={{ padding: isMobile ? '80px 20px' : '140px 48px', background: S.bg, borderBottom: `1px solid ${S.line}` }}>
       <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '140px 1fr auto', gap: isMobile ? 12 : 40, alignItems: 'end', marginBottom: isMobile ? 32 : 60 }}>
         {!isMobile && <div style={{ fontFamily: S.mono, fontSize: 11, color: S.inkSoft, letterSpacing: '0.14em', textTransform: 'uppercase', borderTop: `1px solid ${S.ink}`, paddingTop: 12 }}>{t.cases.label}</div>}
         <Reveal>
@@ -69,7 +69,7 @@ export default function Cases({ t, lang }) {
         </>
       )}
 
-      <div style={{ marginTop: isMobile ? 32 : 60, padding: isMobile ? '28px 20px' : '40px 32px', background: S.ink, color: S.bg, borderRadius: 6, display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: isMobile ? 20 : 24 }}>
+      <div style={{ marginTop: isMobile ? 32 : 60, padding: isMobile ? '28px 20px' : '40px 32px', background: S.marquee, color: S.inkOnDark, borderRadius: 6, display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)', gap: isMobile ? 20 : 24 }}>
         {[
           { n: 12, s: '+', l: lang === 'es' ? 'negocios en marcha' : 'businesses live' },
           { n: 9, s: '', l: lang === 'es' ? 'años de promedio por proyecto' : 'yrs avg per project' },

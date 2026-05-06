@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import S from '../styles';
-import { Reveal, useMobile } from '../hooks';
+import { Reveal, Highlight, useMobile } from '../hooks';
 
 export default function Services({ t }) {
   const [active, setActive] = useState(null);
@@ -13,7 +13,13 @@ export default function Services({ t }) {
           fontSize: 'clamp(48px, 6vw, 100px)',
           lineHeight: 0.92, letterSpacing: '-0.02em',
           margin: isMobile ? '0 0 40px' : '0 0 80px', color: S.ink, maxWidth: '14ch',
-        }}>{t.services.title}</h2>
+        }}>
+          {t.services.title.split(' ').map((w, i) =>
+            /funcionen|work/i.test(w)
+              ? <Highlight key={i} delay={400}>{w} </Highlight>
+              : <span key={i}>{w} </span>
+          )}
+        </h2>
       </Reveal>
 
       <div style={{ borderTop: `1px solid ${S.ink}` }}>
@@ -44,32 +50,32 @@ export default function Services({ t }) {
                 transition: 'transform .3s cubic-bezier(.2,.7,.1,1)',
               }} />
               <div style={{
-                fontFamily: S.mono, fontSize: isMobile ? 11 : 14, color: S.ink,
+                fontFamily: S.mono, fontSize: isMobile ? 11 : 14, color: isActive ? S.accentInk : S.ink,
                 letterSpacing: '0.1em',
                 transform: isActive ? 'translateX(4px)' : 'translateX(0)',
-                transition: 'transform .3s',
+                transition: 'transform .3s, color .3s',
               }}>{item.n}</div>
               <div style={{
                 fontFamily: S.display,
                 fontSize: isMobile ? 'clamp(22px, 5vw, 28px)' : 'clamp(24px, 2.4vw, 36px)',
-                color: S.ink, letterSpacing: '-0.01em', lineHeight: 1.05,
+                color: isActive ? S.accentInk : S.ink, letterSpacing: '-0.01em', lineHeight: 1.05,
                 transform: isActive ? 'translateX(8px)' : 'translateX(0)',
-                transition: 'transform .35s cubic-bezier(.2,.7,.1,1)',
+                transition: 'transform .35s cubic-bezier(.2,.7,.1,1), color .3s',
               }}>{item.t}</div>
               {!isMobile && (
                 <div style={{
                   fontFamily: S.sans, fontSize: 16, lineHeight: 1.45,
-                  color: isActive ? S.ink : S.inkSoft,
+                  color: isActive ? S.accentInk : S.inkSoft,
                   maxWidth: '40ch',
                   transition: 'color .3s',
                 }}>{item.d}</div>
               )}
               {!isMobile && (
                 <div style={{
-                  fontFamily: S.display, fontSize: 42, color: S.ink,
+                  fontFamily: S.display, fontSize: 42, color: isActive ? S.accentInk : S.ink,
                   transform: isActive ? 'translateX(0) rotate(-45deg)' : 'translateX(-12px) rotate(0)',
                   opacity: isActive ? 1 : 0.25,
-                  transition: 'transform .35s cubic-bezier(.2,.7,.1,1), opacity .3s',
+                  transition: 'transform .35s cubic-bezier(.2,.7,.1,1), opacity .3s, color .3s',
                   textAlign: 'right', fontWeight: 900,
                 }}>→</div>
               )}

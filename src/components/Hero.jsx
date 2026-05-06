@@ -63,12 +63,11 @@ export default function Hero({ t, lang }) {
       <Reveal>
         <h1 style={{
           fontFamily: S.display,
-          fontSize: isMobile ? 'clamp(38px, 11.5vw, 54px)' : 'clamp(64px, 9vw, 172px)',
-          lineHeight: 0.9,
-          letterSpacing: '-0.02em',
+          fontSize: isMobile ? 'clamp(38px, 11.5vw, 54px)' : 'clamp(64px, 9vw, 80px)',
+          lineHeight: 1.1,
           margin: 0,
           color: S.ink,
-          maxWidth: '16ch',
+          maxWidth: '18ch',
           textTransform: 'none',
           fontWeight: 900,
           position: 'relative',
@@ -115,7 +114,11 @@ export default function Hero({ t, lang }) {
         position: 'relative',
       }}>
         <Reveal delay={200}>
-          <p style={{
+        <div style={{
+            display: 'flex',
+            gap: 8,
+          }}>
+        <p style={{
             fontFamily: S.display,
             fontSize: isMobile ? 20 : 'clamp(18px, 1.6vw, 26px)',
             lineHeight: 1.4,
@@ -125,7 +128,21 @@ export default function Hero({ t, lang }) {
             fontWeight: 400,
             fontStyle: 'italic',
             letterSpacing: '-0.01em',
-          }}>{t.hero.sub}</p>
+          }}>{t.hero.sub } </p>
+          <p style={{
+            fontFamily: S.display,
+            fontSize: isMobile ? 20 : 'clamp(18px, 1.6vw, 26px)',
+            lineHeight: 1.4,
+            margin: 0,
+            color: S.sub2,
+            maxWidth: '28ch',
+            fontWeight: 400,
+            fontStyle: 'italic',
+            letterSpacing: '-0.01em',
+          }}>{t.hero.sub2}</p>
+        </div>
+
+          
         </Reveal>
 
         <Reveal delay={400}>
@@ -139,16 +156,14 @@ export default function Hero({ t, lang }) {
               padding: isMobile ? '16px 24px' : '22px 36px', borderRadius: 999,
               fontFamily: S.sans, fontSize: isMobile ? 15 : 16, fontWeight: 600,
               textDecoration: 'none',
-              border: `2px solid ${S.ink}`,
-              boxShadow: `4px 4px 0 ${S.ink}`,
               transition: 'transform .2s, box-shadow .2s',
               display: 'inline-flex', alignItems: 'center', gap: 8,
             }}
-              onMouseEnter={e => { e.currentTarget.style.transform = 'translate(-2px,-2px)'; e.currentTarget.style.boxShadow = `6px 6px 0 ${S.ink}`; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = 'translate(0,0)'; e.currentTarget.style.boxShadow = `4px 4px 0 ${S.ink}`; }}
+              onMouseEnter={e => { e.currentTarget.style.transform = 'translate(-2px,-2px)';}}
+              onMouseLeave={e => { e.currentTarget.style.transform = 'translate(0,0)'; }}
             >{t.hero.cta} →</a>
             <a href="#story" style={{
-              color: S.ink, fontFamily: S.sans, fontSize: 15,
+              color: S.ink, fontFamily: S.sans, fontSize: 15, fontWeight: 800,
               textDecoration: 'underline', textUnderlineOffset: 6,
               padding: '16px 0',
             }}>{t.hero.ctaSecondary}</a>

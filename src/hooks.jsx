@@ -51,6 +51,26 @@ export function useInView(ref, options = { threshold: 0.15, rootMargin: '0px 0px
   return inView;
 }
 
+// Subrayado lima animado — dispara al entrar en viewport
+// Uso: <Highlight>palabra</Highlight>
+export function Highlight({ children, delay = 0, height = '0.16em', bottom = '0.08em' }) {
+  const ref = useRef(null);
+  const vis = useInView(ref);
+  return (
+    <span ref={ref} style={{ position: 'relative', display: 'inline-block' }}>
+      {children}
+      <span style={{
+        position: 'absolute', left: 0, right: 0, bottom,
+        height, background: '#A3E635', zIndex: -1,
+        display: 'inline-block',
+        transformOrigin: 'left center',
+        transform: vis ? 'scaleX(1)' : 'scaleX(0)',
+        transition: vis ? `transform .9s cubic-bezier(.7,0,.3,1) ${delay}ms` : 'none',
+      }} />
+    </span>
+  );
+}
+
 export function Reveal({ children, delay = 0, as: Tag = 'div', style, ...rest }) {
   const ref = useRef(null);
   const vis = useInView(ref);

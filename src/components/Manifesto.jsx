@@ -6,7 +6,7 @@ export default function Manifesto({ t }) {
   return (
     <section style={{
       padding: isMobile ? '80px 20px' : '140px 48px',
-      background: S.bgSoft,
+      background: S.marquee,
       borderTop: `1px solid ${S.line}`,
       borderBottom: `1px solid ${S.line}`,
     }}>

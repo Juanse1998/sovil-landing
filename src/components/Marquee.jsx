@@ -8,8 +8,8 @@ export default function Marquee({ lang }) {
   const run = [...items, ...items, ...items];
   return (
     <div style={{
-      background: S.ink, color: S.bg, padding: '18px 0',
-      borderTop: `1px solid ${S.ink}`, borderBottom: `1px solid ${S.ink}`,
+      background: S.marquee, color: S.bg, padding: '18px 0',
+      borderTop: `1px solid ${S.marquee}`, borderBottom: `1px solid ${S.marquee}`,
       overflow: 'hidden', position: 'relative',
     }}>
       <div style={{
