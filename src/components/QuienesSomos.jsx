@@ -6,16 +6,17 @@ const DEFAULT_MEMBERS = [
   {
     name: 'Federico Villegas',
     role: 'Cofounder · Business Lead',
-    bio: 'Diseña la estrategia comercial, ordena el modelo de negocio y acompaña a cada cliente en las decisiones que mueven la aguja. Pone el lente del negocio en cada conversación.',
+    bio: 'Define estrategia, estructura y dirección comercial. Convierte ideas en sistemas claros y negocios preparados para crecer, alineando visión, oportunidades y toma de decisiones para impulsar cada proyecto.',
     initials: 'FV',
-    photo: '/team-federico-villegas.jpg',
+    photo: '/fedeprofile.webp',
   },
+
   {
     name: 'Juan Segundo Sosa',
     role: 'Cofounder · Tech & Product Lead',
-    bio: 'Lidera la estrategia técnica y de producto. Convierte ideas en soluciones digitales que funcionan, escalan y se sostienen en el tiempo. Lo técnico, al servicio del negocio.',
+    bio: 'Lidera el desarrollo técnico y la construcción de productos digitales, transformando ideas en soluciones escalables, funcionales y centradas en resolver problemas reales.',
     initials: 'JS',
-    photo: '/team-juan-segundo-sosa.jpg',
+    photo: '/juanprofile.webp',
   },
 ];
 
@@ -139,6 +140,8 @@ function TeamCard({ member }) {
         flexDirection: 'column',
         alignItems: 'center',
         textAlign: 'center',
+        height: '100%',
+        justifyContent: 'space-between',
         border: hover ? `1px solid ${S.accent}` : `1px solid ${S.line}`,
         transform: hover ? 'translateY(-4px)' : 'translateY(0)',
         transition: 'all 0.3s cubic-bezier(.2,.7,.1,1)',
@@ -161,10 +164,12 @@ function TeamCard({ member }) {
       <div
         style={{
           position: 'relative',
-          width: '180px',
-          height: '180px',
+          width: '200px',
+          height: '200px',
           marginBottom: '32px',
+          overflow: 'hidden',
           flexShrink: 0,
+          borderRadius: '50%',
         }}
       >
         {/* Photo */}
@@ -178,12 +183,10 @@ function TeamCard({ member }) {
               inset: 0,
               width: '100%',
               height: '100%',
+              objectFit: 'contain',
               borderRadius: '50%',
-              objectFit: 'cover',
-              border: `2px solid ${S.line}`,
               zIndex: 2,
-              filter: hover ? 'grayscale(0)' : 'grayscale(0.2)',
-              transition: 'filter 0.3s',
+              transform: 'scale(1.25) translateY(10px)',
             }}
           />
         )}
