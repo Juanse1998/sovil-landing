@@ -40,8 +40,9 @@ export default function Nav({ t, lang, toggleLang }) {
           {lang === 'es' ? 'ES' : 'EN'}
         </button>
         <a href="#contact" style={{
-          background: S.sub2, color: S.bg,
+          color: 'white',
           padding: isMobile ? '8px 14px' : '10px 20px',
+          border: `1px solid ${S.accent}`,
           borderRadius: 999, fontSize: 13, textDecoration: 'none',
           fontFamily: S.sans, fontWeight: 600, letterSpacing: '0.01em',
         }}>{isMobile ? '→' : `${t.hero.cta} →`}</a>

@@ -152,7 +152,8 @@ export default function Hero({ t, lang }) {
             justifyContent: isMobile ? 'flex-start' : 'flex-start',
           }}>
             <a href="#contact" style={{
-              background: S.accent, color: S.accentInk,
+              color: 'white',
+              border: `1px solid ${S.accent}`,
               padding: isMobile ? '16px 24px' : '22px 36px', borderRadius: 999,
               fontFamily: S.sans, fontSize: isMobile ? 15 : 16, fontWeight: 600,
               textDecoration: 'none',
@@ -163,7 +164,7 @@ export default function Hero({ t, lang }) {
               onMouseLeave={e => { e.currentTarget.style.transform = 'translate(0,0)'; }}
             >{t.hero.cta} →</a>
             <a href="#story" style={{
-              color: S.ink, fontFamily: S.sans, fontSize: 15, fontWeight: 800,
+              color: 'white', fontFamily: S.sans, fontSize: 15, fontWeight: 800,
               textDecoration: 'underline', textUnderlineOffset: 6,
               padding: '16px 0',
             }}>{t.hero.ctaSecondary}</a>

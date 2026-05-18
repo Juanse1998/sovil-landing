@@ -13,7 +13,8 @@ export default function Footer({ t }) {
         <div style={{ textAlign: isMobile ? 'left' : 'right' }}>
           <a href="#contact" style={{
             display: 'inline-flex', alignItems: 'center', gap: 12,
-            background: S.accent, color: S.accentInk,
+            color: 'white',
+            border: `1px solid ${S.accent}`,
             padding: isMobile ? '16px 24px' : '22px 36px', borderRadius: 999,
             fontFamily: S.sans, fontSize: isMobile ? 15 : 16, fontWeight: 600, textDecoration: 'none',
           }}>{t.hero.cta} →</a>

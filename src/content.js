@@ -164,7 +164,7 @@ const SOVIL_CONTENT = {
         stages: ['Tengo una idea', 'Proyecto trabado', 'Quiero escalar', 'Todavía no sé'],
         message: 'Contanos un poco',
         messagePlaceholder: '¿Qué querés resolver? ¿Qué probaste? ¿Qué te trajo hasta acá?',
-        submit: 'Agendar llamada',
+        submit: 'Enviar mail',
         sending: 'Enviando…',
         sent: 'Listo. Te escribimos en menos de 24h.',
       },
