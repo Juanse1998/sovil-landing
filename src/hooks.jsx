@@ -20,8 +20,18 @@ export function useContactForm() {
   const submit = async (e) => {
     e?.preventDefault();
     setStatus('sending');
-    await new Promise(r => setTimeout(r, 900));
-    setStatus('sent');
+    try {
+      const t = SOVIL_CONTENT['es'];
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...data, stages: t.contact.form.stages }),
+      });
+      if (!res.ok) throw new Error();
+      setStatus('sent');
+    } catch {
+      setStatus('error');
+    }
   };
   const reset = () => { setData({ name: '', email: '', company: '', stage: 0, message: '' }); setStatus('idle'); };
   return { data, update, status, submit, reset };
