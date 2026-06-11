@@ -15,7 +15,7 @@ function carBtn(side) {
   return {
     position: 'absolute', top: '50%', [side]: 20, transform: 'translateY(-50%)',
     width: 48, height: 48, borderRadius: '50%',
-    background: 'rgba(255,255,255,0.9)', color: S.ink,
+    background: 'rgba(255,255,255,0.9)', color: S.accentInk,
     border: 'none', cursor: 'pointer',
     fontFamily: S.sans, fontSize: 20, fontWeight: 700,
     display: 'flex', alignItems: 'center', justifyContent: 'center',
