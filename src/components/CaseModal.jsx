@@ -17,9 +17,10 @@ function carBtn(side) {
     width: 48, height: 48, borderRadius: '50%',
     background: 'rgba(255,255,255,0.9)', color: S.ink,
     border: 'none', cursor: 'pointer',
-    fontFamily: S.display, fontSize: 22, fontWeight: 900,
+    fontFamily: S.sans, fontSize: 20, fontWeight: 700,
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     boxShadow: '0 6px 16px rgba(0,0,0,0.15)',
+    lineHeight: 1,
   };
 }
 

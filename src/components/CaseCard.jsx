@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import S from '../styles';
-import { Reveal } from '../hooks';
+import { Reveal, useMobile } from '../hooks';
 import SectorGraphic from './SectorGraphic';
 
 export default function CaseCard({ t, c, idx, size, onOpen }) {
   const [hover, setHover] = useState(false);
+  const isMobile = useMobile();
   const isLg = size === 'lg';
   return (
     <Reveal delay={idx * 80}>
@@ -70,11 +71,13 @@ export default function CaseCard({ t, c, idx, size, onOpen }) {
               letterSpacing: '0.14em', textTransform: 'uppercase',
               opacity: 0.75, marginBottom: 8,
             }}>{c.sector}</div>
-            <div style={{
-              fontFamily: S.display, fontSize: isLg ? 72 : 40,
-              lineHeight: 0.95, letterSpacing: '-0.02em',
-              fontWeight: 900, maxWidth: '14ch',
-            }}>{c.result}</div>
+            {(!isMobile || isLg) && (
+              <div style={{
+                fontFamily: S.display, fontSize: isLg ? 72 : 40,
+                lineHeight: 0.95, letterSpacing: '-0.02em',
+                fontWeight: 900, maxWidth: '14ch',
+              }}>{c.result}</div>
+            )}
           </div>
         </div>
 
