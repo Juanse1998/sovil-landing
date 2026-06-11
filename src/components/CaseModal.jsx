@@ -196,17 +196,25 @@ export default function CaseModal({ t, lang, idx, items, onClose, onNav }) {
           </div>
           <div style={{ position: 'relative', borderRadius: 6, overflow: 'hidden', border: `1px solid ${S.line}`, aspectRatio: '16 / 9', background: S.bgSoft }}>
             <div style={{ display: 'flex', height: '100%', transform: `translateX(-${slide * 100}%)`, transition: 'transform .4s cubic-bezier(.2,.7,.1,1)' }}>
-              {c.images.map((label, i) => (
-                <div key={i} style={{
-                  flex: '0 0 100%', height: '100%', position: 'relative',
-                  background: i % 2 === 0 ? S.forest : S.ink, color: S.inkOnDark,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                }}>
-                  <SlideArt index={i} sector={c.sector} />
-                  <div style={{ position: 'absolute', left: 24, top: 24, fontFamily: S.mono, fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', opacity: 0.7 }}>Shot {String(i + 1).padStart(2, '0')}</div>
-                  <div style={{ position: 'absolute', left: 24, bottom: 24, fontFamily: S.display, fontSize: 36, letterSpacing: '-0.01em', fontWeight: 900 }}>{label}</div>
-                </div>
-              ))}
+              {c.images.map((img, i) => {
+                const src = img?.src;
+                const label = img?.label ?? img;
+                return (
+                  <div key={i} style={{
+                    flex: '0 0 100%', height: '100%', position: 'relative',
+                    background: i % 2 === 0 ? S.forest : S.ink, color: S.inkOnDark,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  }}>
+                    {src ? (
+                      <img src={src} alt={label} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
+                    ) : (
+                      <SlideArt index={i} sector={c.sector} />
+                    )}
+                    <div style={{ position: 'absolute', left: 24, top: 24, fontFamily: S.mono, fontSize: 10, letterSpacing: '0.14em', textTransform: 'uppercase', opacity: src ? 0 : 0.7 }}>Shot {String(i + 1).padStart(2, '0')}</div>
+                    {!src && <div style={{ position: 'absolute', left: 24, bottom: 24, fontFamily: S.display, fontSize: 36, letterSpacing: '-0.01em', fontWeight: 900 }}>{label}</div>}
+                  </div>
+                );
+              })}
             </div>
             <button onClick={() => setSlide(s => (s - 1 + c.images.length) % c.images.length)} style={carBtn('left')}>←</button>
             <button onClick={() => setSlide(s => (s + 1) % c.images.length)} style={carBtn('right')}>→</button>
@@ -279,9 +287,16 @@ export default function CaseModal({ t, lang, idx, items, onClose, onNav }) {
             <span style={{ fontFamily: S.display, fontSize: 24 }}>←</span>
             {L.prev}
           </button>
-          <a href="#s5" onClick={onClose} style={{ background: S.ink, color: S.bg, padding: '16px 28px', fontFamily: S.sans, fontSize: 15, fontWeight: 600, textDecoration: 'none', borderRadius: 999, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
-            {lang === 'es' ? 'Quiero algo así' : 'I want something like this'} →
-          </a>
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'center' }}>
+            {c.url && (
+              <a href={c.url} target="_blank" rel="noopener noreferrer" style={{ background: S.accent, color: S.ink, padding: '16px 28px', fontFamily: S.sans, fontSize: 15, fontWeight: 600, textDecoration: 'none', borderRadius: 999, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+                {lang === 'es' ? 'Ver proyecto' : 'View project'} ↗
+              </a>
+            )}
+            <a href="#s5" onClick={onClose} style={{ background: S.ink, color: S.bg, padding: '16px 28px', fontFamily: S.sans, fontSize: 15, fontWeight: 600, textDecoration: 'none', borderRadius: 999, display: 'inline-flex', alignItems: 'center', gap: 10 }}>
+              {lang === 'es' ? 'Quiero algo así' : 'I want something like this'} →
+            </a>
+          </div>
           <button onClick={() => onNav(1)} style={{ background: 'transparent', border: 'none', cursor: 'pointer', fontFamily: S.sans, fontSize: 14, color: S.inkSoft, display: 'flex', alignItems: 'center', gap: 10 }}>
             {L.next}
             <span style={{ fontFamily: S.display, fontSize: 24 }}>→</span>

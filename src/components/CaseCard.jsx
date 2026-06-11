@@ -29,9 +29,21 @@ export default function CaseCard({ t, c, idx, size, onOpen }) {
           background: c.sector === 'Fintech' ? S.forest
             : c.sector === 'Retail' ? '#1A1A1A'
               : S.accent,
-          color: c.sector === 'SaaS B2B' || c.sector === 'B2B SaaS' ? S.accentInk : S.inkOnDark,
+          color: c.images?.[0]?.src ? S.inkOnDark
+            : c.sector === 'SaaS B2B' || c.sector === 'B2B SaaS' ? S.accentInk : S.inkOnDark,
         }}>
-          <SectorGraphic sector={c.sector} size={isLg ? 'lg' : 'sm'} />
+          {c.images?.[0]?.src ? (
+            <>
+              <img
+                src={c.images[0].src}
+                alt={c.images[0].label}
+                style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover', transition: 'transform .5s cubic-bezier(.2,.7,.1,1)', transform: hover ? 'scale(1.04)' : 'scale(1)' }}
+              />
+              <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.55) 100%)' }} />
+            </>
+          ) : (
+            <SectorGraphic sector={c.sector} size={isLg ? 'lg' : 'sm'} />
+          )}
 
           <div style={{
             position: 'absolute', top: 20, left: 24,
@@ -74,6 +86,22 @@ export default function CaseCard({ t, c, idx, size, onOpen }) {
           display: 'flex', flexDirection: 'column', gap: 14,
         }}>
           <div style={{ fontFamily: S.sans, fontSize: isLg ? 16 : 14, lineHeight: 1.5, color: S.ink }}>{c.brief}</div>
+          {c.url && (
+            <a
+              href={c.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={e => e.stopPropagation()}
+              style={{
+                fontFamily: S.mono, fontSize: 11, letterSpacing: '0.1em',
+                textTransform: 'uppercase', color: S.inkSoft,
+                textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6,
+                width: 'fit-content',
+              }}
+            >
+              {c.url.replace('https://', '')} ↗
+            </a>
+          )}
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
             <div style={{ display: 'flex', gap: 6, flexWrap: 'wrap' }}>
               {(c.services || []).slice(0, isLg ? 4 : 2).map((srv, i) => (
